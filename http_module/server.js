@@ -2,11 +2,13 @@ const http = require("http");
 
 const server = http.createServer((req, res)=>{
     if(req.url === '/'){
+        res.setHeader("Content-Type", "text/plain");
         res.write("Hello world");
         res.end();
     }
     if(req.url === '/about'){
-        res.write("Server created by : Md Hasan Ali");
+        res.setHeader("Content-Type", "text/html");
+        res.write("<h1> Server created by : Md Hasan Ali</h1>");
         res.end();   
     }
     if(req.url === "/contact"){
